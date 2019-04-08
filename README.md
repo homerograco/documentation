@@ -18,6 +18,7 @@ Try your first LIST Request by following these 4 steps:
 * Access the Routing App from the Merchant Portal, and activate the routes per country by choosing a routing strategy.
 
 2. Generate a Sandbox Payment Token
+
 You must generate a Token to authenticate your system against the Payment Gateway API.
 
 To generate a Sandbox token:
@@ -26,6 +27,7 @@ To generate a Sandbox token:
 * Copy and save the value immediately. For security reasons, it will not be shown again and cannot be recovered. You can create a new one if necessary.
 
 3. Install a tool for manual testing
+
 We suggest that you use one of the browser plugins listed in Tools for Manual Testing so you can submit JSON POST requests easily by hand.
 
 4. Do a LIST Request
@@ -39,6 +41,7 @@ Use the following values to submit your first LIST Request with the chosen tool:
 * Header Accept:  application/vnd.optile.payment.enterprise-v1-extensible+json
 * Request Body Content: Copy and paste the content on the side to the tool that you're using. This content is just an example; make sure that it stays in JSON Format.
 
+```json
     {
       "transactionId": "tr101",
       "country": "DE",
@@ -60,3 +63,4 @@ Use the following values to submit your first LIST Request with the chosen tool:
         "notificationUrl":"https://dev.oscato.com/shop/notify.html"
       }
     }
+```json
