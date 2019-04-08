@@ -10,14 +10,14 @@ To test these features, you need an account for our website. If you do not have 
 
 Try your first LIST Request by following these 4 steps:
 
-1. Configure your OPG Sandbox
+### 1. Configure your OPG Sandbox
 * In the portal, go to the Dashboard and open the Provider Contracts section
 * Choose Test Adapter "TESTPSP". Make sure you add a valid URL eg (http://www.dummyvalidurl.com)
 * Select "Countries and networks", eg Germany (DE), France (FR), and payment methods VISA, MasterCard, SEPA Direct Debit, and PayPal
 * In the country-methods matrix at the end of the dialog, select PayPal to be available in France but not Germany
 * Access the Routing App from the Merchant Portal, and activate the routes per country by choosing a routing strategy.
 
-2. Generate a Sandbox Payment Token
+### 2. Generate a Sandbox Payment Token
 
 You must generate a Token to authenticate your system against the Payment Gateway API.
 
@@ -26,11 +26,11 @@ To generate a Sandbox token:
 * Go to the portal dashboard, open "Tokens" and generate a Sandbox Payment Token. It will be used later to authenticate your system against the Payment Gateway.
 * Copy and save the value immediately. For security reasons, it will not be shown again and cannot be recovered. You can create a new one if necessary.
 
-3. Install a tool for manual testing
+### 3. Install a tool for manual testing
 
 We suggest that you use one of the browser plugins listed in Tools for Manual Testing so you can submit JSON POST requests easily by hand.
 
-4. Do a LIST Request
+### 4. Do a LIST Request
 Use the following values to submit your first LIST Request with the chosen tool:
 
 * URL: https://api.sandbox.oscato.com/api/lists
@@ -70,28 +70,29 @@ Example LIST Request
 Example LIST Response
 
 ```json
-{
-"links": {
-  "self": "https://api.sandbox.oscato.com/pci/v1/5a4f43dabc12312dfef5752blt5et3mnk2abc123u0fm79bud2"},
-"timestamp": "2018-01-05T09:22:31.355+0000",
-"operation": "LIST",
-"resultCode": "00000.11.000",
-"resultInfo": "4 applicable and 0 registered networks are found",
-"returnCode": {
-  "name": "OK",
-  "source": "GATEWAY" },
-"status": {
-  "code": "listed",
-  "reason": "listed" },
-"interaction": {
-  "code": "PROCEED",
-  "reason": "OK" },
-"identification": {
-  "longId": "5a4f43d7148b512dfef5752blt5et3mnk226k45uu0fm79bud2",
-  "shortId": "02694-35736",
-  "transactionId": "id_h0010" },
-"networks": {
-  "applicable": [{
-    "code": "MASTERCARD", ... }]
-... }
+    {
+    "links": {
+      "self": "https://api.sandbox.oscato.com/pci/v1/5a4f43dabc12312dfef5752blt5et3mnk2abc123u0fm79bud2"},
+    "timestamp": "2018-01-05T09:22:31.355+0000",
+    "operation": "LIST",
+    "resultCode": "00000.11.000",
+    "resultInfo": "4 applicable and 0 registered networks are found",
+    "returnCode": {
+      "name": "OK",
+      "source": "GATEWAY" },
+    "status": {
+      "code": "listed",
+      "reason": "listed" },
+    "interaction": {
+      "code": "PROCEED",
+      "reason": "OK" },
+    "identification": {
+      "longId": "5a4f43d7148b512dfef5752blt5et3mnk226k45uu0fm79bud2",
+      "shortId": "02694-35736",
+      "transactionId": "id_h0010" },
+    "networks": {
+      "applicable": [{
+        "code": "MASTERCARD", "..." }]
+    },
+    "..."
 ```
