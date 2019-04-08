@@ -41,6 +41,8 @@ Use the following values to submit your first LIST Request with the chosen tool:
 * Header Accept:  application/vnd.optile.payment.enterprise-v1-extensible+json
 * Request Body Content: Copy and paste the content on the side to the tool that you're using. This content is just an example; make sure that it stays in JSON Format.
 
+Example LIST Request
+
 ```json
     {
       "transactionId": "tr101",
@@ -63,4 +65,33 @@ Use the following values to submit your first LIST Request with the chosen tool:
         "notificationUrl":"https://dev.oscato.com/shop/notify.html"
       }
     }
+```
+
+Example LIST Response
+
 ```json
+{
+"links": {
+  "self": "https://api.sandbox.oscato.com/pci/v1/5a4f43dabc12312dfef5752blt5et3mnk2abc123u0fm79bud2"},
+"timestamp": "2018-01-05T09:22:31.355+0000",
+"operation": "LIST",
+"resultCode": "00000.11.000",
+"resultInfo": "4 applicable and 0 registered networks are found",
+"returnCode": {
+  "name": "OK",
+  "source": "GATEWAY" },
+"status": {
+  "code": "listed",
+  "reason": "listed" },
+"interaction": {
+  "code": "PROCEED",
+  "reason": "OK" },
+"identification": {
+  "longId": "5a4f43d7148b512dfef5752blt5et3mnk226k45uu0fm79bud2",
+  "shortId": "02694-35736",
+  "transactionId": "id_h0010" },
+"networks": {
+  "applicable": [{
+    "code": "MASTERCARD", ... }]
+... }
+```
