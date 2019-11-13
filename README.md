@@ -13,7 +13,7 @@ Try your first LIST Request by following these 4 steps:
 ### 1. Configure your OPG Sandbox
 
 * In the portal, go to the Dashboard and open the Provider Contracts section
-* Choose Test Adapter "TESTPSP". Make sure you add a valid URL eg \([http://www.dummyvalidurl.com](http://www.dummyvalidurl.com)\)
+* Choose Test Adapter "TESTPSP". Make sure you add a valid URL e.g. [http://www.dummyvalidurl.com](http://www.dummyvalidurl.com)
 * Select "Countries and networks", eg Germany \(DE\), France \(FR\), and payment methods VISA, MasterCard, SEPA Direct Debit, and PayPal
 * In the country-methods matrix at the end of the dialog, select PayPal to be available in France but not Germany
 * Access the Routing App from the Merchant Portal, and activate the routes per country by choosing a routing strategy.
