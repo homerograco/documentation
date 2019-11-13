@@ -1,4 +1,4 @@
-# Open Payment Gateway - OPG
+# Open Payment Gateway
 
 This documentation guides you through optile's Open Payment Gateway \(OPG\) features for frontend checkout and backend use cases. It provides important information about integration scenarios, testing possibilities, and references.
 
@@ -121,7 +121,7 @@ Note: You have 30 minutes to make a successful CHARGE. After 30 minutes, you wil
 
 The payment page should look like the example picture below:
 
-![Payment Page](https://github.com/homerograco/documentation/blob/master/payment_page.png)
+
 
 This payment page has all necessary capabilities to validate and process payment account input. For example, try using the following test account and then click on the Pay button:
 
