@@ -121,7 +121,7 @@ Note: You have 30 minutes to make a successful CHARGE. After 30 minutes, you wil
 
 The payment page should look like the example picture below:
 
-
+![Payment page](.gitbook/assets/payment_page.png)
 
 This payment page has all necessary capabilities to validate and process payment account input. For example, try using the following test account and then click on the Pay button:
 
