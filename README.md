@@ -1,6 +1,6 @@
 # Open Payment Gateway - OPG
 
-This documentation guides you through optile's Open Payment Gateway (OPG) features for frontend checkout and backend use cases. It provides important information about integration scenarios, testing possibilities, and references.
+This documentation guides you through optile's Open Payment Gateway \(OPG\) features for frontend checkout and backend use cases. It provides important information about integration scenarios, testing possibilities, and references.
 
 ## First Steps
 
@@ -11,9 +11,10 @@ To test these features, you need an account for our website. If you do not have 
 Try your first LIST Request by following these 4 steps:
 
 ### 1. Configure your OPG Sandbox
+
 * In the portal, go to the Dashboard and open the Provider Contracts section
-* Choose Test Adapter "TESTPSP". Make sure you add a valid URL eg (http://www.dummyvalidurl.com)
-* Select "Countries and networks", eg Germany (DE), France (FR), and payment methods VISA, MasterCard, SEPA Direct Debit, and PayPal
+* Choose Test Adapter "TESTPSP". Make sure you add a valid URL eg \([http://www.dummyvalidurl.com](http://www.dummyvalidurl.com)\)
+* Select "Countries and networks", eg Germany \(DE\), France \(FR\), and payment methods VISA, MasterCard, SEPA Direct Debit, and PayPal
 * In the country-methods matrix at the end of the dialog, select PayPal to be available in France but not Germany
 * Access the Routing App from the Merchant Portal, and activate the routes per country by choosing a routing strategy.
 
@@ -31,19 +32,20 @@ To generate a Sandbox token:
 We suggest that you use one of the browser plugins listed in Tools for Manual Testing so you can submit JSON POST requests easily by hand.
 
 ### 4. Do a LIST Request
+
 Use the following values to submit your first LIST Request with the chosen tool:
 
-* URL: https://api.sandbox.oscato.com/api/lists
+* URL: [https://api.sandbox.oscato.com/api/lists](https://api.sandbox.oscato.com/api/lists)
 * HTTP Method: POST
-* Basic Authentication User Name: [Your merchant code]
-* Basic Authentication Password: [Your sandbox payment token]
+* Basic Authentication User Name: \[Your merchant code\]
+* Basic Authentication Password: \[Your sandbox payment token\]
 * Header Content Type:  application/vnd.optile.payment.enterprise-v1-extensible+json
 * Header Accept:  application/vnd.optile.payment.enterprise-v1-extensible+json
 * Request Body Content: Copy and paste the content on the side to the tool that you're using. This content is just an example; make sure that it stays in JSON Format.
 
 Example LIST Request
 
-```json
+```javascript
     {
       "transactionId": "tr101",
       "country": "DE",
@@ -69,7 +71,7 @@ Example LIST Request
 
 Example LIST Response
 
-```json
+```javascript
     {
     "links": {
       "self": "https://api.sandbox.oscato.com/pci/v1/5a4f43dabc12312dfef5752blt5et3mnk2abc123u0fm79bud2"},
@@ -99,7 +101,7 @@ Example LIST Response
 
 Find out more about authentication and version headers in API Access.
 
-For your request you should receive a successful HTTP 200 response with a list of available payment methods for this transaction (attribute networks.applicable).
+For your request you should receive a successful HTTP 200 response with a list of available payment methods for this transaction \(attribute networks.applicable\).
 
 If you configured your OPG Sandbox as described above, Carte Bleue will not show in this list.
 
@@ -108,11 +110,14 @@ If you configured your OPG Sandbox as described above, Carte Bleue will not show
 Follow the steps below to visualize the content of a generated LIST with a default style, using optile's Hosted Payment Page:
 
 * Examine the LIST Response and take the content of the links.self attribute. That's the URL of the LIST Resource:
-https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs
-* Append it as query parameter listUrl to the following URL of the Hosted Payment Page, and open it in a browser:
-https://resources.sandbox.oscato.com/paymentpage/v3/responsive.html?listUrl=https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs
 
-Note: You have 30 minutes to make a successful CHARGE. After 30 minutes, you will get an error and you should create a new LIST Session (That's also why the link above will not work).
+  [https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs](https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs)
+
+* Append it as query parameter listUrl to the following URL of the Hosted Payment Page, and open it in a browser:
+
+  [https://resources.sandbox.oscato.com/paymentpage/v3/responsive.html?listUrl=https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs](https://resources.sandbox.oscato.com/paymentpage/v3/responsive.html?listUrl=https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs)
+
+Note: You have 30 minutes to make a successful CHARGE. After 30 minutes, you will get an error and you should create a new LIST Session \(That's also why the link above will not work\).
 
 The payment page should look like the example picture below:
 
@@ -120,7 +125,7 @@ The payment page should look like the example picture below:
 
 This payment page has all necessary capabilities to validate and process payment account input. For example, try using the following test account and then click on the Pay button:
 
-```
+```text
 Card number: 5500000000000004
 Expiry Date: any date in the future
 Security Code: any 3 digit number
@@ -131,9 +136,9 @@ Using this input above will trigger instant validation, and clicking on Pay will
 
 ### 6. CHARGE request
 
-The LIST response as generated in step 4. contains information about the current payment session, including all available payment networks and their attributes as seen in the array  `networks.applicable`. In this example every network has the same attributes, but for our testing we are now only going to look at `links.operation` from Mastercard:
+The LIST response as generated in step 4. contains information about the current payment session, including all available payment networks and their attributes as seen in the array `networks.applicable`. In this example every network has the same attributes, but for our testing we are now only going to look at `links.operation` from Mastercard:
 
-```json
+```javascript
 "operation": "https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs/MASTERCARD/charge"
 ```
 
@@ -146,12 +151,14 @@ The CHARGE request will then be done as exemplified in the right pane, using the
 A successful CHARGE response should contain a "charged" status code and a redirect URL to the success page as defined in the LIST request.
 
 ### Play Around
-Make another LIST Request, with an incremented `transactionId` (it's technically not required but it is good practice to keep them unique) and change the attribute `country` to `FR`. Submit again. Now you should see a similar list in the response, but this time with PayPal because we configured it earlier for France only.
 
-Also, you can copy the logo URL (attribute `links.logo`) of one of the networks and open it in a browser. The logo of that payment method will show.
+Make another LIST Request, with an incremented `transactionId` \(it's technically not required but it is good practice to keep them unique\) and change the attribute `country` to `FR`. Submit again. Now you should see a similar list in the response, but this time with PayPal because we configured it earlier for France only.
+
+Also, you can copy the logo URL \(attribute `links.logo`\) of one of the networks and open it in a browser. The logo of that payment method will show.
 
 Take one of the credit cards in the list and open the URL from `links.localizedForm` in a browser. You will see a snippet of a simple HTML form without any styling. If you like, you can open the HTML source code. This snippet is another building-block provided by OPG to generate the payment page.
 
 To see an out-of-the-box example of how a payment page is rendered, see our Demo. You can also play around with the country parameter that should go into the LIST Request as well as several parameters offered by our AJAX Integration JavaScript library.
 
 From here on we recommend you to understand our Integration Scenarios and choose the one that better fits your business model. We also have more LIST use cases and backend use cases designed to cover specific checkout flows to fit your application.
+
