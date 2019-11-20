@@ -47,7 +47,7 @@ Use the following values to submit your first LIST Request with the chosen tool:
 * Header Accept:  application/vnd.optile.payment.enterprise-v1-extensible+json
 * Request Body Content: Copy and paste the content on the side to the tool that you're using. This content is just an example; make sure that it stays in JSON Format.
 
-Example LIST Request
+#### Example LIST Request
 
 ```javascript
     {
@@ -73,7 +73,7 @@ Example LIST Request
     }
 ```
 
-Example LIST Response
+#### Example LIST Response
 
 ```javascript
     {
@@ -142,9 +142,7 @@ Using this input above will trigger instant validation, and clicking on Pay will
 
 The LIST response as generated in step 4. contains information about the current payment session, including all available payment networks and their attributes as seen in the array `networks.applicable`. In this example every network has the same attributes, but for our testing we are now only going to look at `links.operation` from Mastercard:
 
-```javascript
-"operation": "https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs/MASTERCARD/charge"
-```
+`"operation":"https://api.sandbox.oscato.com/pci/v1/59722056cb4280f9550078e3lffpph128vffgueil7chn475bs/MASTERCARD/charge"`
 
 Notice that this operation endpoint starts with a reference to the current LIST long ID and ends in `/MASTERCARD/charge`, which means that for the Mastercard network the next operation after listing it is a charge on the customer account. This operation URL is the endpoint to which you need to submit the CHARGE request via `POST`.
 
