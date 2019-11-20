@@ -1,6 +1,10 @@
-# Open Payment Gateway
+---
+description: >-
+  This documentation guides you through optile's Open Payment Gateway (OPG)
+  features for frontend checkout and backend use cases.
+---
 
-This documentation guides you through optile's Open Payment Gateway \(OPG\) features for frontend checkout and backend use cases. It provides important information about integration scenarios, testing possibilities, and references.
+# Open Payment Gateway
 
 ## First Steps
 
